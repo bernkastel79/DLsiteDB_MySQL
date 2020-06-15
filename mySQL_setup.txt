@@ -1,0 +1,12 @@
+mysql -u root -p
+mysql> CREATE USER 'Jguest'@'localhost';
+mysql> GRANT ALL PRIVILEGES ON DLsite.* TO 'Jguest'@'localhost' IDENTIFIED BY 'java';
+
+mysql> CREATE DATABASE DLsite;
+mysql> CREATE TABLE 音声作品 ( 作品番号 VARCHAR(50) PRIMARY KEY, 作品タイトル VARCHAR(1000) NOT NULL, サークル名 varchar(500) NOT NULL );
+mysql> CREATE TABLE 電子書籍 LIKE 音声作品;
+mysql> CREATE TABLE 動画 LIKE 音声作品;
+mysql> CREATE TABLE 同人誌・CG LIKE 音声作品;
+mysql> CREATE TABLE ゲーム ( 作品番号 VARCHAR(50) PRIMARY KEY, 作品タイトル VARCHAR(1000) NOT NULL, サークル名 VARCHAR(500) NOT NULL, 補足 VARCHAR(500) );
+mysql> CREATE TABLE ゲームパッチ・その他 ( 作品番号 VARCHAR(50) PRIMARY KEY, 作品タイトル VARCHAR(1000) NOT NULL, サークル名 VARCHAR(500) NOT NULL, 補足 VARCHAR(500), 親ファイル VARCHAR(50) );
+
